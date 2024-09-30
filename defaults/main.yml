@@ -1,0 +1,6 @@
+---
+# defaults file for try
+
+theme_monokai_plus: true
+firebase_extension: true
+vuejs_tooling_extension: true

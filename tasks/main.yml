@@ -1,0 +1,35 @@
+---
+
+- name: extension From course Modern JavaScript (from Novice to Ninja) by @NetNinja
+  ansible.builtin.shell: "code --install-extension {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.vscode/extensions/{{ item | lower }}*"
+  loop:
+  - ritwickdey.LiveServer
+  - PKief.material-icon-theme
+
+- name: Monokai++ Theme
+  ansible.builtin.shell: "code --install-extension {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.vscode/extensions/{{ item | lower }}*"
+  loop:
+  - dcasella.monokai-plusplus
+  when: theme_monokai_plus
+
+- name: Firebase extension
+  ansible.builtin.shell: "code --install-extension {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.vscode/extensions/{{ item | lower }}*"
+  loop:
+  - toba.vsfire
+  when: firebase_extension
+
+- name: Vue.js tooling
+  ansible.builtin.shell: "code --install-extension {{ item }}"
+  args:
+    creates: "{{ ansible_env.HOME }}/.vscode/extensions/{{ item | lower }}*"
+  loop:
+  - octref.vetur
+  when: vuejs_tooling_extension
+
+# https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
